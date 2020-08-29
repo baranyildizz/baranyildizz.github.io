@@ -9,10 +9,6 @@ var button;
 var pbekle;
 
 let mySound;
-function preload() {
-  soundFormats('mp3');
-  mySound = loadSound('assets/tik');
-}
 
 
 function setup() {
@@ -23,6 +19,8 @@ function setup() {
 
   button = createButton('start timer');
   button.mousePressed(doTimer);
+  
+  mySound = loadSound("tik.mp3");
 }
 
 
