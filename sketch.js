@@ -19,15 +19,15 @@ function setup() {
   pbekle = createP('pbekle');
 
   button = createButton('start timer');
-  button.mousePressed(loaded);
-    sound = loadSound("nt.mp3");
+  button.mousePressed(doTimer);
+    sound = loadSound("tik.mp3");
 //    setVolume(1.0);
 }
 
-function loaded() {
-  sound.play();
-  sound.loop();
-}
+//function loaded() {
+//  sound.play();
+//  sound.loop();
+//}
 
 function doTimer() {
 
@@ -43,7 +43,7 @@ function doTimer() {
 }
 
 function timeIt() {
-//  sound.play();
+  sound.play();
 //  PlaySound();
   timer.html(counter);
   line(0,0,counter,counter);
