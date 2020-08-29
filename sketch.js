@@ -1,5 +1,6 @@
-// Daniel Shiffman
-// https://thecodingtrain.com/CodingChallenges/074-clock.html
+// Daniel Shiffman   https://thecodingtrain.com/CodingChallenges/074-clock.html üzerinden denemeler
+
+
 var cnv;
 
 var x = 0;
@@ -9,17 +10,20 @@ var p=-10;
 var timer;
 var counter = 0;
 var interval;
+var button;
 
 var pbekle;
 
 var sound;
-var stereo = 0.3;
+var stereo = 0.4;
 
-var k = 2;
+var k = 2.5;
 
 function preload(){
     sound = loadSound('https://raw.githubusercontent.com/baranyildizz/tik/master/tik.mp3');
+
 }
+
 
 function centerCanvas() {
   var x = (windowWidth - width) / 2;
@@ -32,6 +36,7 @@ function setup() {
   centerCanvas();
   background(0);
   angleMode(DEGREES);
+  sound.setVolume(0.2);
 }
 
 function windowResized() {
@@ -40,6 +45,8 @@ function windowResized() {
 
 function mouseClicked() {
 //  sound.play();
+let fs = fullscreen();
+fullscreen(!fs);
 doTimer();
 }
 function doTimer() {
@@ -57,7 +64,13 @@ function timeIt() {
   //line(0,0,counter,counter);
   counter++;
   sound.pan((((bekle%2)*2)-1)*stereo);
-
+//  sound.setVolume(((bekle%2)+1.4)/4);
+/*  if((bekle%5)==0){
+sound.setVolume(1);
+  }else{
+sound.setVolume(0.1);
+  }
+*/
   if (bekle <= 50) {
   //  clearInterval(interval);
   //  interval = false;
@@ -65,9 +78,11 @@ function timeIt() {
   }else{
     clearInterval(interval);
     interval = setInterval(timeIt, bekle);
-    bekle += 1;
+    bekle += 7;
   }
 }
+
+
 
 function draw() {
   background(0);
@@ -78,7 +93,7 @@ function draw() {
   let mn = minute();
   let sc = second();
 
-  strokeWeight(23);
+  strokeWeight(12);
   stroke(255, 100, 150);
   noFill();
 //  sc= counter%60;
@@ -95,19 +110,19 @@ function draw() {
 
   push();
   rotate(secondAngle);
-  stroke(255, 100, 150);
+  stroke(230,140,200);
   line(0, 0, 100*k, 0);
   pop();
 
   push();
   rotate(minuteAngle);
-  stroke(150, 100, 255);
+  stroke(100);
   line(0, 0, 75*k, 0);
   pop();
 
   push();
   rotate(hourAngle);
-  stroke(150, 255, 100);
+  stroke(50);
   line(0, 0, 50*k, 0);
   pop();
 
