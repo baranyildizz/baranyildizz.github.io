@@ -8,8 +8,11 @@ var button;
 
 var pbekle;
 
-var sound;
-
+let mySound;
+function preload() {
+  soundFormats('mp3');
+  mySound = loadSound('assets/tik');
+}
 
 
 function setup() {
@@ -20,14 +23,8 @@ function setup() {
 
   button = createButton('start timer');
   button.mousePressed(doTimer);
-    sound = loadSound("tik.mp3");
-//    setVolume(1.0);
 }
 
-//function loaded() {
-//  sound.play();
-//  sound.loop();
-//}
 
 function doTimer() {
 
@@ -43,8 +40,7 @@ function doTimer() {
 }
 
 function timeIt() {
-  sound.play();
-//  PlaySound();
+mySound.play();
   timer.html(counter);
   line(0,0,counter,counter);
   counter++;
