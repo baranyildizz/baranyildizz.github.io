@@ -45,8 +45,8 @@ function windowResized() {
 
 function mouseClicked() {
 //  sound.play();
-let fs = fullscreen();
-fullscreen(!fs);
+//let fs = fullscreen();
+//fullscreen(!fs);
 doTimer();
 }
 function doTimer() {
