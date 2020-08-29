@@ -20,7 +20,7 @@ function setup() {
   button = createButton('start timer');
   button.mousePressed(doTimer);
   
-  mySound = loadSound("tik.mp3");
+//  mySound = loadSound("tik.mp3");
 }
 
 
@@ -38,7 +38,7 @@ function doTimer() {
 }
 
 function timeIt() {
-mySound.play();
+//  mySound.play();
   timer.html(counter);
   line(0,0,counter,counter);
   counter++;
