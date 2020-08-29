@@ -2,7 +2,6 @@
 // https://thecodingtrain.com/CodingChallenges/074-clock.html
 var cnv;
 
-
 var x = 0;
 var bekle = 1000;
 var p=-10;
@@ -10,7 +9,6 @@ var p=-10;
 var timer;
 var counter = 0;
 var interval;
-var button;
 
 var pbekle;
 
@@ -21,9 +19,7 @@ var k = 2;
 
 function preload(){
     sound = loadSound('https://raw.githubusercontent.com/baranyildizz/tik/master/tik.mp3');
-
 }
-
 
 function centerCanvas() {
   var x = (windowWidth - width) / 2;
@@ -73,8 +69,6 @@ function timeIt() {
   }
 }
 
-
-
 function draw() {
   background(0);
   translate(300, 300);
@@ -119,11 +113,4 @@ function draw() {
 
   stroke(255);
   point(0, 0);
-
-
-  //  fill(255);
-  //  noStroke();
-  //  text(hr + ':' + mn + ':' + sc, 10, 200);
-
-
 }
