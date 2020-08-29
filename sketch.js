@@ -1,11 +1,11 @@
-// Daniel Shiffman   https://thecodingtrain.com/CodingChallenges/074-clock.html üzerinden denemeler
-
-
+// Daniel Shiffman
+// https://thecodingtrain.com/CodingChallenges/074-clock.html
 var cnv;
+
 
 var x = 0;
 var bekle = 1000;
-var p=-10;
+var adim=7;
 
 var timer;
 var counter = 0;
@@ -32,7 +32,7 @@ function centerCanvas() {
 }
 
 function setup() {
-  cnv = createCanvas(600, 600);
+  cnv = createCanvas(windowWidth, windowHeight);
   centerCanvas();
   background(0);
   angleMode(DEGREES);
@@ -40,15 +40,18 @@ function setup() {
 }
 
 function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
   centerCanvas();
 }
 
-function mouseClicked() {
-//  sound.play();
-//let fs = fullscreen();
-//fullscreen(!fs);
+function touchStarted() {
+  sound.play();
+var fs = fullscreen();
+fullscreen(!fs);
 doTimer();
 }
+
+
 function doTimer() {
   if (!interval) {
     interval = setInterval(timeIt, bekle);
@@ -71,22 +74,27 @@ sound.setVolume(1);
 sound.setVolume(0.1);
   }
 */
-  if (bekle <= 50) {
+bekle = bekle + adim;
+  if (bekle <= 600) {
   //  clearInterval(interval);
   //  interval = false;
-    bekle = 60;
-  }else{
+    adim = adim*-1;
+  }else if(bekle>=2000){
+
+
+  //  clearInterval(interval);
+  //  interval = setInterval(timeIt, bekle);
+    adim = adim*-1;
+  }
     clearInterval(interval);
     interval = setInterval(timeIt, bekle);
-    bekle += 7;
-  }
 }
 
 
 
 function draw() {
   background(0);
-  translate(300, 300);
+  translate(windowWidth/2, windowHeight/2);
   rotate(-90);
 
   let hr = hour();
@@ -108,10 +116,27 @@ function draw() {
   let hourAngle = map(hr % 12, 0, 12, 0, 360);
 //  arc(0, 0, 100, 100, 0, hourAngle);
 
+
+push();
+stroke(20);
+for(i=6;i<=360;i=i+6){
+  strokeWeight(2);
+  if(i%30==0){strokeWeight(4);}
+  rotate(6);
+//  line(55*k,0,100*k,0);
+//  line(0,0,100*k,0);
+  point(100*k, 0);
+}
+pop();
+
   push();
   rotate(secondAngle);
   stroke(230,140,200);
   line(0, 0, 100*k, 0);
+  //rotate(-90);
+  fill(20);
+  noStroke();
+  text(bekle + ' ms', 105*k, 5);
   pop();
 
   push();
@@ -128,4 +153,5 @@ function draw() {
 
   stroke(255);
   point(0, 0);
+
 }
