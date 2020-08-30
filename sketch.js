@@ -1,7 +1,7 @@
 // Daniel Shiffman'in (https://thecodingtrain.com/CodingChallenges/074-clock.html) kodu üzerinden zaman buken saat denemesi.
 
 var cnv;
-
+var toggle =false;
 var x = 0;
 var bekle = 1000;
 var adim=7;
@@ -39,7 +39,11 @@ function windowResized() {
 }
 
 function mouseClicked() {
-sound.play();
+if (toggle==false){
+    sound.play();
+    toggle = true;
+ }else{
+ toggle=false}
 //var fs = fullscreen();
 //fullscreen(!fs);
   doTimer();
