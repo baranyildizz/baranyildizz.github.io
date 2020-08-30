@@ -16,7 +16,7 @@ var stereo = 0.5;
 var k = 2.5;
 
 function preload(){
-    sound = loadSound('https://raw.githubusercontent.com/baranyildizz/tik/master/tik.mp3');
+    sound = loadSound('tik.mp3');
 }
 
 function centerCanvas() {
@@ -39,7 +39,7 @@ function windowResized() {
 }
 
 function mousePressed() {
-//sound.play();
+sound.play();
 //var fs = fullscreen();
 //fullscreen(!fs);
   doTimer();
