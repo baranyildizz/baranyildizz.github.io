@@ -38,11 +38,12 @@ function windowResized() {
   centerCanvas();
 }
 
-function mousePressed() {
+function mouseClicked() {
 sound.play();
 //var fs = fullscreen();
 //fullscreen(!fs);
   doTimer();
+    return false;
 }
 
 function doTimer() {
