@@ -38,7 +38,7 @@ function windowResized() {
   centerCanvas();
 }
 
-function mouseClicked() {
+function mousePressed() {
 //sound.play();
 //var fs = fullscreen();
 //fullscreen(!fs);
@@ -69,11 +69,11 @@ function timeIt() {
   }
 */
   bekle = bekle + adim;
-  if (bekle <= 600) {
+  if (bekle <= 650) {
 //  clearInterval(interval);
 //  interval = false;
     adim = adim*-1;
-  }else if(bekle>=2000){
+  }else if(bekle>=1800){
 //  clearInterval(interval);
 //  interval = setInterval(timeIt, bekle);
     adim = adim*-1;
