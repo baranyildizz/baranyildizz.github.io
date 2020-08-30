@@ -38,7 +38,7 @@ function windowResized() {
   centerCanvas();
 }
 
-function mouseClicked() {
+function touchStarted() {
 if (toggle==false){
     sound.play();
     toggle = true;
